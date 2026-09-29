@@ -1,4 +1,5 @@
 #include <unity.h>
+#include <stdexcept>
 
 #include "telemetry.hpp"
 
@@ -14,7 +15,13 @@ void test_calibration_and_quality() {
 void test_replay_is_rejected() {
     SignalNormalizer normalizer({0.0f, 10.0f, 0.0f, 1.0f, "ratio"});
     normalizer.normalize("edge", "sensor", 5, 10, 2.0f);
-    TEST_ASSERT_THROW(normalizer.normalize("edge", "sensor", 5, 11, 2.0f), std::invalid_argument);
+    bool rejected = false;
+    try {
+        normalizer.normalize("edge", "sensor", 5, 11, 2.0f);
+    } catch (const std::invalid_argument&) {
+        rejected = true;
+    }
+    TEST_ASSERT_TRUE(rejected);
 }
 
 void test_buffer_is_bounded_and_fifo() {
