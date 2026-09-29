@@ -6,6 +6,22 @@
 #include <stdexcept>
 #include <utility>
 
+namespace {
+std::string escapeJson(const std::string& value) {
+    std::ostringstream escaped;
+    for (unsigned char character : value) {
+        if (character == '"' || character == '\\\\') {
+            escaped << '\\\\' << static_cast<char>(character);
+        } else if (character < 0x20) {
+            escaped << "\\u" << std::hex << std::setw(4) << std::setfill('0') << static_cast<int>(character) << std::dec;
+        } else {
+            escaped << static_cast<char>(character);
+        }
+    }
+    return escaped.str();
+}
+}
+
 SignalNormalizer::SignalNormalizer(Calibration calibration) : calibration_(std::move(calibration)) {
     if (calibration_.rawMin >= calibration_.rawMax || calibration_.valueMin >= calibration_.valueMax || calibration_.unit.empty())
         throw std::invalid_argument("invalid_calibration");
