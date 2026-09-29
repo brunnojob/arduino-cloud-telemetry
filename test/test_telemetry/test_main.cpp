@@ -25,7 +25,7 @@ void test_replay_is_rejected() {
 }
 
 void test_serializer_escapes_json_identifiers() {
-    TelemetryFrame frame{"edge\\"one", "sensor", 1, 100, 1.0f, 2.0f, "bar", SignalQuality::Good};
+    TelemetryFrame frame{R"(edge"one)", "sensor", 1, 100, 1.0f, 2.0f, "bar", SignalQuality::Good};
     const auto output = serialize(frame);
     TEST_ASSERT_TRUE(output.find(R"(edge\"one)") != std::string::npos);
 }
