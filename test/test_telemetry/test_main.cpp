@@ -24,6 +24,12 @@ void test_replay_is_rejected() {
     TEST_ASSERT_TRUE(rejected);
 }
 
+void test_serializer_escapes_json_identifiers() {
+    TelemetryFrame frame{"edge\\"one", "sensor", 1, 100, 1.0f, 2.0f, "bar", SignalQuality::Good};
+    const auto output = serialize(frame);
+    TEST_ASSERT_TRUE(output.find(R"(edge\"one)") != std::string::npos);
+}
+
 void test_buffer_is_bounded_and_fifo() {
     TelemetryBuffer buffer(2);
     auto frame = [](int sequence) { return TelemetryFrame{"edge", "s", static_cast<unsigned>(sequence), 100, 1, 1, "bar", SignalQuality::Good}; };
@@ -40,6 +46,7 @@ int main() {
     UNITY_BEGIN();
     RUN_TEST(test_calibration_and_quality);
     RUN_TEST(test_replay_is_rejected);
+    RUN_TEST(test_serializer_escapes_json_identifiers);
     RUN_TEST(test_buffer_is_bounded_and_fifo);
     return UNITY_END();
 }
