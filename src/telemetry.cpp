@@ -10,8 +10,8 @@ namespace {
 std::string escapeJson(const std::string& value) {
     std::ostringstream escaped;
     for (unsigned char character : value) {
-        if (character == '"' || character == '\\\\') {
-            escaped << '\\\\' << static_cast<char>(character);
+        if (character == '"' || character == 92) {
+            escaped << static_cast<char>(92) << static_cast<char>(character);
         } else if (character < 0x20) {
             escaped << "\\u" << std::hex << std::setw(4) << std::setfill('0') << static_cast<int>(character) << std::dec;
         } else {
@@ -83,9 +83,9 @@ std::string qualityName(SignalQuality quality) {
 std::string serialize(const TelemetryFrame& frame) {
     std::ostringstream stream;
     stream << std::fixed << std::setprecision(3)
-           << "{\"device\":\"" << frame.deviceId << "\",\"sensor\":\"" << frame.sensorId
+           << "{\"device\":\"" << escapeJson(frame.deviceId) << "\",\"sensor\":\"" << escapeJson(frame.sensorId)
            << "\",\"sequence\":" << frame.sequence << ",\"timestamp_ms\":" << frame.timestampMs
            << ",\"raw\":" << frame.raw << ",\"value\":" << frame.value
-           << ",\"unit\":\"" << frame.unit << "\",\"quality\":\"" << qualityName(frame.quality) << "\"}";
+           << ",\"unit\":\"" << escapeJson(frame.unit) << "\",\"quality\":\"" << qualityName(frame.quality) << "\"}";
     return stream.str();
 }
