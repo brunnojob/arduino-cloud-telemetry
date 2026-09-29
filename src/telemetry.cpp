@@ -13,7 +13,7 @@ std::string escapeJson(const std::string& value) {
         if (character == '"' || character == 92) {
             escaped << static_cast<char>(92) << static_cast<char>(character);
         } else if (character < 0x20) {
-            escaped << "\\u" << std::hex << std::setw(4) << std::setfill('0') << static_cast<int>(character) << std::dec;
+            escaped << static_cast<char>(92) << 'u' << std::hex << std::setw(4) << std::setfill('0') << static_cast<int>(character) << std::dec;
         } else {
             escaped << static_cast<char>(character);
         }
