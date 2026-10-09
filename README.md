@@ -1,10 +1,10 @@
 # ESP32 Telemetry
 
-Aquisição calibrada, qualidade de sinal, sequência por sensor, buffer limitado e confirmação de entrega serial.
+Calibrated acquisition, signal quality, per-sensor sequence numbers, a bounded buffer, and acknowledged serial delivery.
 
-## Executar
+## Run
 
-Requisitos: ESP32, C++17 e PlatformIO.
+Requirements: ESP32, C++17, and PlatformIO.
 
 ```sh
 pio test -e native
@@ -14,17 +14,21 @@ python -m pip install -r cloud/requirements.txt
 python cloud/serial_bridge.py /dev/ttyUSB0
 ```
 
-## Funcionamento
+## Behavior
 
-ADC no GPIO 34, serial a 115200 baud. Uptime estendido atravessa o rollover de `millis()`. Identidade de inicialização distingue reinícios. A ponte conserva lotes em SQLite; calibração e pinagem devem corresponder ao equipamento conectado.
+ADC uses GPIO 34; serial runs at 115200 baud. Extended uptime handles `millis()` rollover. A boot identifier distinguishes restarts. The bridge retains batches in SQLite. Calibration and pin assignments must match the connected equipment.
 
-## Persistência de resultados
+## Result synchronization
 
-O arquivo de operações está em [vercel-home-telemetry-api.vercel.app](https://vercel-home-telemetry-api.vercel.app/laboratory.html?project=arduino-cloud-telemetry). As migrações Supabase estão no [repositório da API](https://github.com/brunnojob/vercel-home-telemetry-api/tree/main/supabase/migrations).
+The [operations archive](https://vercel-home-telemetry-api.vercel.app/laboratory.html?project=arduino-cloud-telemetry) stores execution results. Supabase migrations are in the [API repository](https://github.com/brunnojob/vercel-home-telemetry-api/tree/main/supabase/migrations).
 
 ```sh
-python cloud/sync.py enqueue resultado.json --project arduino-cloud-telemetry
+python cloud/sync.py enqueue result.json --project arduino-cloud-telemetry
 python cloud/sync.py sync
 ```
 
-Defina `BRUNNODEV_ACCESS_TOKEN` com sua sessão. A fila SQLite conserva os relatórios até confirmação do servidor; o mesmo conteúdo não gera registros duplicados. Tokens não são gravados no código.
+Set `BRUNNODEV_ACCESS_TOKEN` to your session token. The SQLite outbox retains reports until the server confirms persistence; identical content does not create duplicate records. Tokens are not stored in source code. To run the synchronization tests:
+
+```sh
+python -m unittest discover -s cloud
+```
