@@ -21,7 +21,7 @@ std::string escapeJson(const std::string &value) {
   }
   return escaped.str();
 }
-} // namespace
+}
 
 SignalNormalizer::SignalNormalizer(Calibration calibration)
     : calibration_(std::move(calibration)) {
@@ -49,12 +49,14 @@ TelemetryFrame SignalNormalizer::normalize(std::string deviceId,
     throw std::invalid_argument("replayed_sequence");
   if (previous == sequences_.end() && sequences_.size() >= 128)
     throw std::invalid_argument("device_limit");
-  sequences_[key] = sequence;
   const bool inRange = raw >= calibration_.rawMin && raw <= calibration_.rawMax;
   const float ratio =
       (raw - calibration_.rawMin) / (calibration_.rawMax - calibration_.rawMin);
   const float value = calibration_.valueMin +
                       ratio * (calibration_.valueMax - calibration_.valueMin);
+  if (!std::isfinite(value))
+    throw std::invalid_argument("calibrated_value_overflow");
+  sequences_[key] = sequence;
   return {std::move(deviceId),
           std::move(sensorId),
           sequence,
@@ -114,6 +116,8 @@ std::string qualityName(SignalQuality quality) {
 }
 
 std::string serialize(const TelemetryFrame &frame) {
+  if (!std::isfinite(frame.raw) || !std::isfinite(frame.value))
+    throw std::invalid_argument("non_finite_frame");
   std::ostringstream stream;
   stream << std::fixed << std::setprecision(3) << "{\"device\":\""
          << escapeJson(frame.deviceId) << "\",\"sensor\":\""

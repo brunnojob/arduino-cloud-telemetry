@@ -25,3 +25,9 @@ Export a JSON report from the command above, then run `python cloud/sync.py enqu
 ## License
 
 Original source and documentation are MIT licensed; see [LICENSE](LICENSE). Third-party dependencies and media retain their respective terms. Maintained by [Brunno Dev](https://brunnodev.store).
+
+## Implementation update
+
+Calibration overflow is rejected before consuming a sensor sequence number. Serialization refuses non-finite measurements so invalid numeric values cannot enter a report. Native regression checks are in `tests/runtime_regressions.cpp`.
+
+Contribution trailer: `Co-authored-by: nyctophile <33561761+ineedfoundmyway@users.noreply.github.com>`.
