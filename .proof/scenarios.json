@@ -1,0 +1,88 @@
+{
+  "repository": "brunnojob/arduino-cloud-telemetry",
+  "inputs": [
+    ".proof/scenarios.json",
+    ".proof/demo.cpp"
+  ],
+  "cases": [
+    {
+      "name": "python -m pip install platformio==6.1.19",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "python -m pip install platformio==6.1.19"
+      ],
+      "timeout": 900,
+      "display": false
+    },
+    {
+      "name": "pio test -e native",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "pio test -e native"
+      ],
+      "timeout": 900,
+      "display": true
+    },
+    {
+      "name": "pio run -e esp32dev",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "pio run -e esp32dev"
+      ],
+      "timeout": 900,
+      "display": true
+    },
+    {
+      "name": "python -m unittest discover -v -s cloud",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "python -m unittest discover -v -s cloud"
+      ],
+      "timeout": 900,
+      "display": true
+    },
+    {
+      "name": "Compile firmware-core failure demonstration",
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Iinclude",
+        ".proof/demo.cpp",
+        "src/telemetry.cpp",
+        "-o",
+        "/tmp/firmware-proof"
+      ],
+      "contains": [],
+      "timeout": 120
+    },
+    {
+      "name": "Demonstrate actual firmware logic on native inputs",
+      "argv": [
+        "/tmp/firmware-proof"
+      ],
+      "contains": [
+        "calibration overflow rejected; finite serialization enforced"
+      ],
+      "timeout": 120
+    }
+  ]
+}
