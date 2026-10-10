@@ -30,7 +30,7 @@ Original source and documentation are MIT licensed; see [LICENSE](LICENSE). Thir
 
 Calibration overflow is rejected before consuming a sensor sequence number. Serialization refuses non-finite measurements so invalid numeric values cannot enter a report. Native regression checks are in `tests/runtime_regressions.cpp`.
 
-Contribution trailer: `Co-authored-by: nyctophile <329826984+ineedfoundmyway@users.noreply.github.com>`.
+Contribution trailer: `Co-authored-by: nyctophile <33561761+ineedfoundmyway@users.noreply.github.com>`.
 
 ## Execution proof
 
