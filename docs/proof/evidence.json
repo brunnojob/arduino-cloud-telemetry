@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "repository": "brunnojob/arduino-cloud-telemetry",
+  "source_commit": "3f6ed698c6d1cf9fdae3ee09d391af5edc01c52f",
+  "generated_at": "2026-10-10T02:34:54.148905+00:00",
+  "run_url": "https://github.com/brunnojob/arduino-cloud-telemetry/actions/runs/38017482953",
+  "inputs_sha256": {
+    ".proof/scenarios.json": "293fab7ea98bdacb2d0f30425214aa7ba38d841734b07d2316a00f1c0801c931",
+    ".proof/demo.cpp": "bb2bc7dfb99d0c5ca222b140d1e9e72a1da714eaa1e56268de2a0efaec8cfb18"
+  },
+  "cases": [
+    {
+      "display": false,
+      "name": "python -m pip install platformio==6.1.19",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "python -m pip install platformio==6.1.19"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 3.158,
+      "output": "Collecting platformio==6.1.19\n  Downloading platformio-6.1.19-py3-none-any.whl.metadata (7.2 kB)\nCollecting bottle==0.13.* (from platformio==6.1.19)\n  Downloading bottle-0.13.4-py2.py3-none-any.whl.metadata (1.6 kB)\nCollecting click<8.4,>=8.0.4 (from platformio==6.1.19)\n  Downloading click-8.3.3-py3-none-any.whl.metadata (2.6 kB)\nCollecting colorama (from platformio==6.1.19)\n  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting marshmallow==3.* (from platformio==6.1.19)\n  Downloading marshmallow-3.26.2-py3-none-any.whl.metadata (7.3 kB)\nCollecting pyelftools<1,>=0.27 (from platformio==6.1.19)\n  Downloading pyelftools-0.33-py3-none-any.whl.metadata (1.0 kB)\nCollecting pyserial==3.5.* (from platformio==6.1.19)\n  Downloading pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)\nCollecting requests==2.* (from platformio==6.1.19)\n  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)\nCollecting semantic_version==2.10.* (from platformio==6.1.19)\n  Downloading semantic_version-2.10.0-py2.py3-none-any.whl.metadata (9.7 kB)\nCollecting tabulate==0.* (from platformio==6.1.19)\n  Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)\nCollecting ajsonrpc==1.2.* (from platformio==6.1.19)\n  Downloading ajsonrpc-1.2.0-py3-none-any.whl.metadata (6.9 kB)\nCollecting starlette<0.53,>=0.19 (from platformio==6.1.19)\n  Downloading starlette-0.52.1-py3-none-any.whl.metadata (6.3 kB)\nCollecting uvicorn<0.41,>=0.16 (from platformio==6.1.19)\n  Downloading uvicorn-0.40.0-py3-none-any.whl.metadata (6.7 kB)\nCollecting wsproto==1.* (from platformio==6.1.19)\n  Downloading wsproto-1.3.2-py3-none-any.whl.metadata (5.2 kB)\nCollecting packaging>=17.0 (from marshmallow==3.*->platformio==6.1.19)\n  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)\nCollecting charset_normalizer<4,>=2 (from requests==2.*->platformio==6.1.19)\n  Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)\nCollecting idna<4,>=2.5 (from requests==2.*->platformio==6.1.19)\n  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)\nCollecting urllib3<3,>=1.26 (from requests==2.*->platformio==6.1.19)\n  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)\nCollecting certifi>=2023.5.7 (from requests==2.*->platformio==6.1.19)\n  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)\nCollecting anyio<5,>=3.6.2 (from starlette<0.53,>=0.19->platformio==6.1.19)\n  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)\nCollecting typing-extensions>=4.10.0 (from starlette<0.53,>=0.19->platformio==6.1.19)\n  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)\nCollecting h11>=0.8 (from uvicorn<0.41,>=0.16->platformio==6.1.19)\n  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)\nDownloading platformio-6.1.19-py3-none-any.whl (421 kB)\nDownloading ajsonrpc-1.2.0-py3-none-any.whl (22 kB)\nDownloading bottle-0.13.4-py2.py3-none-any.whl (103 kB)\nDownloading click-8.3.3-py3-none-any.whl (110 kB)\nDownloading marshmallow-3.26.2-py3-none-any.whl (50 kB)\nDownloading pyelftools-0.33-py3-none-any.whl (201 kB)\nDownloading pyserial-3.5-py2.py3-none-any.whl (90 kB)\nDownloading requests-2.34.2-py3-none-any.whl (73 kB)\nDownloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)\nDownloading idna-3.20-py3-none-any.whl (69 kB)\nDownloading semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)\nDownloadi\nFull transcript in the execution-proof artifact.",
+      "output_sha256": "5669da6dbe557bb8431c8ec5d0a5b6b28c91c16ee2f6c27564034cd06c6c3cbc",
+      "output_truncated": true
+    },
+    {
+      "display": true,
+      "name": "pio test -e native",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "pio test -e native"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 8.973,
+      "output": "********************************************************************************\nIf you like PlatformIO, please:\n- star it on GitHub > https://github.com/platformio/platformio-core\n- follow us on LinkedIn to stay up-to-date on the latest project news > https://www.linkedin.com/company/platformio/\n- try PlatformIO IDE for embedded development > https://platformio.org/platformio-ide\n********************************************************************************\n\nVerbosity level can be increased via `-v, -vv, or -vvv` option\nCollected 1 tests\nPlatform Manager: Installing native\nDownloading 0% 10%\nUnpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nPlatform Manager: native@1.2.1 has been installed!\n\nProcessing test_telemetry in native environment\n--------------------------------------------------------------------------------\nBuilding...\nTool Manager: Installing platformio/tool-scons @ ~4.40801.0\nDownloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nUnpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nTool Manager: tool-scons@4.40801.0 has been installed!\nLibrary Manager: Installing throwtheswitch/Unity @ ^2.6.1\nDownloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90%\nUnpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nLibrary Manager: Unity@2.6.1 has been installed!\nTesting...\ntest/test_telemetry/test_main.cpp:57: test_calibration_and_quality\t[PASSED]\ntest/test_telemetry/test_main.cpp:58: test_replay_is_rejected\t[PASSED]\ntest/test_telemetry/test_main.cpp:59: test_serializer_escapes_json_identifiers\t[PASSED]\ntest/test_telemetry/test_main.cpp:60: test_buffer_is_bounded_and_fifo\t[PASSED]\n--------------- native:test_telemetry [PASSED] Took 6.09 seconds ---------------\n\n=================================== SUMMARY ===================================\nEnvironment    Test            Status    Duration\n-------------  --------------  --------  ------------\nnative         test_telemetry  PASSED    00:00:06.090\n================== 4 test cases: 4 succeeded in 00:00:06.090 ==================\n",
+      "output_sha256": "170a37e06b3fa5f51e7f91059d0cca0343337399f74088a3c7e0ee4e05f4659c"
+    },
+    {
+      "display": true,
+      "name": "pio run -e esp32dev",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "pio run -e esp32dev"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 38.759,
+      "output": "Processing esp32dev (platform: espressif32@6.12.0; board: esp32dev; framework: arduino)\n--------------------------------------------------------------------------------\nPlatform Manager: Installing espressif32 @ 6.12.0\nDownloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nUnpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nPlatform Manager: espressif32@6.12.0 has been installed!\nTool Manager: Installing espressif/toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5\nDownloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nUnpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nTool Manager: toolchain-xtensa-esp32@8.4.0+2021r2-patch5 has been installed!\nTool Manager: Installing platformio/framework-arduinoespressif32 @ ~3.20017.0\nDownloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nUnpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nTool Manager: framework-arduinoespressif32@3.20017.241212+sha.dcc1105b has been installed!\nTool Manager: Installing platformio/tool-esptoolpy @ ~2.40900.0\nDownloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nUnpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%\nCollecting cryptography~=45.0.3\n  Downloading cryptography-45.0.7-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)\nCollecting ecdsa~=0.19.1\n  Downloading ecdsa-0.19.2-py2.py3-none-any.whl.metadata (29 kB)\nCollecting bitstring~=4.3.1\n  Downloading bitstring-4.3.1-py3-none-any.whl.metadata (5.3 kB)\nCollecting reedsolo~=1.7.0\n  Downloading reedsolo-1.7.0-py3-none-any.whl.metadata (23 kB)\nCollecting intelhex~=2.3.0\n  Downloading intelhex-2.3.0-py2.py3-none-any.whl.metadata (2.7 kB)\nCollecting cffi>=1.14 (from cryptography~=45.0.3)\n  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)\nCollecting six>=1.9.0 (from ecdsa~=0.19.1)\n  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)\nCollecting bitarray<4.0,>=3.0.0 (from bitstring~=4.3.1)\n  Downloading bitarray-3.12.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (41 kB)\nCollecting pycparser (from cffi>=1.14->cryptography~=45.0.3)\n  Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)\nDownloading cryptography-45.0.7-cp311-abi3-manylinux_2_34_x86_64.whl (4.5 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 17.6 MB/s  0:00:00\nDownloading ecdsa-0.19.2-py2.py3-none-any.whl (150 kB)\nDownloading bitstring-4.3.1-py3-none-any.whl (71 kB)\nDownloading reedsolo-1.7.0-py3-none-any.whl (32 kB)\nDownloading intelhex-2.3.0-py2.py3-none-any.whl (50 kB)\nDownloading bitarray-3.12.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (398 kB)\nDownloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)\nDownloading six-1.17.0-py2.py3-none-any.whl (11 kB)\nDownloading pycparser-3.11-py3-none-any.whl (51 kB)\nInstalling collected packages: reedsolo, intelhex, six, pycparser, bitarray, ecdsa, cffi, bitstring, cryptography\n\nSuccessfully installed bitarray-3.12.0 bitstring-4.3.1 cffi-2.1.1 cryptography-45.0.7 ecdsa-0.19.2 intelhex-2.3.0 pycparser-3.11 reedsolo-1.7.0 six-1.17.0\nTool Manager: tool-esptoolpy@2.40900.250804 has been installed!\nVerbose mode can be enabled via `-v, --verbose` option\nCONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html\nPLATFORM: Espressif 32 (6.12.0) > Espressif ESP32 Dev Module\nHARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash\nDEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jt\nFull transcript in the execution-proof artifact.",
+      "output_sha256": "86df5e67c4bf3420cd7cfab594dd0c3ffafdf595d6f960cbc8a2cbb07cb76a66",
+      "output_truncated": true
+    },
+    {
+      "display": true,
+      "name": "python -m unittest discover -v -s cloud",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "python -m unittest discover -v -s cloud"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 0.251,
+      "output": "test_confirmed_receipt_marks_the_report_sent (test_receipts.ReceiptTests.test_confirmed_receipt_marks_the_report_sent) ... ok\ntest_events_reject_empty_values_of_the_wrong_type (test_receipts.ReceiptTests.test_events_reject_empty_values_of_the_wrong_type) ... ok\ntest_invalid_receipts_keep_the_report_pending (test_receipts.ReceiptTests.test_invalid_receipts_keep_the_report_pending) ... ok\ntest_omitted_events_and_empty_list_have_the_same_key (test_receipts.ReceiptTests.test_omitted_events_and_empty_list_have_the_same_key) ... ok\ntest_conflicting_key_cannot_overwrite_a_report (test_sync.OutboxTests.test_conflicting_key_cannot_overwrite_a_report) ... ok\ntest_retries_keep_reports_until_confirmed (test_sync.OutboxTests.test_retries_keep_reports_until_confirmed) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.066s\n\nOK\n",
+      "output_sha256": "e67a05093dd775eb4edb2d1d9a24251bddedffa75506ac689712d30963667d26"
+    },
+    {
+      "display": true,
+      "name": "Compile firmware-core failure demonstration",
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Iinclude",
+        ".proof/demo.cpp",
+        "src/telemetry.cpp",
+        "-o",
+        "/tmp/firmware-proof"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 0.903,
+      "output": "",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "display": true,
+      "name": "Demonstrate actual firmware logic on native inputs",
+      "argv": [
+        "/tmp/firmware-proof"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 0.051,
+      "output": "calibration overflow rejected; finite serialization enforced\n",
+      "output_sha256": "db00458a016c62028ed3fc2e2e101d6ec164341dd1a155ddfb676dde3a8173db"
+    }
+  ],
+  "passed": true
+}
