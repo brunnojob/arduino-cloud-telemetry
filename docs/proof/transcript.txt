@@ -87,13 +87,13 @@ test/test_telemetry/test_main.cpp:57: test_calibration_and_quality	[PASSED]
 test/test_telemetry/test_main.cpp:58: test_replay_is_rejected	[PASSED]
 test/test_telemetry/test_main.cpp:59: test_serializer_escapes_json_identifiers	[PASSED]
 test/test_telemetry/test_main.cpp:60: test_buffer_is_bounded_and_fifo	[PASSED]
---------------- native:test_telemetry [PASSED] Took 6.09 seconds ---------------
+--------------- native:test_telemetry [PASSED] Took 5.72 seconds ---------------
 
 =================================== SUMMARY ===================================
 Environment    Test            Status    Duration
 -------------  --------------  --------  ------------
-native         test_telemetry  PASSED    00:00:06.090
-================== 4 test cases: 4 succeeded in 00:00:06.090 ==================
+native         test_telemetry  PASSED    00:00:05.721
+================== 4 test cases: 4 succeeded in 00:00:05.721 ==================
 
 $ bash -e -o pipefail -c pio run -e esp32dev
 Processing esp32dev (platform: espressif32@6.12.0; board: esp32dev; framework: arduino)
@@ -132,7 +132,7 @@ Collecting bitarray<4.0,>=3.0.0 (from bitstring~=4.3.1)
 Collecting pycparser (from cffi>=1.14->cryptography~=45.0.3)
   Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)
 Downloading cryptography-45.0.7-cp311-abi3-manylinux_2_34_x86_64.whl (4.5 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 17.6 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 42.6 MB/s  0:00:00
 Downloading ecdsa-0.19.2-py2.py3-none-any.whl (150 kB)
 Downloading bitstring-4.3.1-py3-none-any.whl (71 kB)
 Downloading reedsolo-1.7.0-py3-none-any.whl (32 kB)
@@ -160,7 +160,7 @@ test_conflicting_key_cannot_overwrite_a_report (test_sync.OutboxTests.test_confl
 test_retries_keep_reports_until_confirmed (test_sync.OutboxTests.test_retries_keep_reports_until_confirmed) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.066s
+Ran 6 tests in 0.103s
 
 OK
 
